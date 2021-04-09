@@ -1,3 +1,5 @@
+@hasrole('admin')
+
 @extends('layouts.back.base')
 
 @section('content-header')
@@ -38,3 +40,5 @@
     </div>
 </div>
 @endsection
+
+@endrole

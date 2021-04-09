@@ -25,6 +25,7 @@
                 <p class="login-box-msg">Sign in to start your session</p>
 
                 <form action="{{ route('login') }}" method="post">
+                    @csrf
                     <div class="input-group mb-3">
                         <input id="email" type="email" name="email" value="{{old('email')}}" class="form-control" placeholder="Email" required autofocus>
                         <div class="input-group-append">
