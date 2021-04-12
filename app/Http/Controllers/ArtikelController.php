@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ArtikelController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,8 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        //
+        $artikels = Artikel::orderBy('id', 'desc')->get();
+        return view('admin.artikel.list', compact('artikels'));
     }
 
     /**

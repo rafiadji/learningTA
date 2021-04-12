@@ -4,3 +4,5 @@
 <link rel="stylesheet" href="{{ asset('back/plugins/fontawesome-free/css/all.min.css') }}">
 <!-- Theme style -->
 <link rel="stylesheet" href="{{ asset('back/dist/css/adminlte.min.css') }}">
+
+@yield('css')
