@@ -17,7 +17,7 @@ class CreateTableBook extends Migration
             $table->id();
             $table->text('judul');
             $table->text('link');
-            $table->text('is_aktif');
+            $table->enum('is_aktif', ['0', '1']);
             $table->timestamps();
         });
     }
