@@ -8,10 +8,10 @@
 		</div>
 		<nav class="nav-menu d-none d-lg-block">
 			<ul>
-				<li class="active"><a href="#header">Artikel</a></li>
-				<li><a href="#about">Game</a></li>
-				<li><a href="#services">Video</a></li>
-				<li><a href="#team">E-Book</a></li>
+				<li class="active"><a href="{{ url('/') }}">Artikel</a></li>
+				<li><a href="#">Game</a></li>
+				<li><a href="{{ url('/video') }}">Video</a></li>
+				<li><a href="{{ url('/book') }}">E-Book</a></li>
 				@if (Route::has('login'))
 						@auth
 							<li><a href="{{ url('/dashboard') }}">Dashboard</a></li>

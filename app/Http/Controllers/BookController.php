@@ -11,7 +11,7 @@ class BookController extends Controller
 	{
 		$this->middleware('auth');
 	}
-	
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -19,7 +19,8 @@ class BookController extends Controller
 	 */
 	public function index()
 	{
-		//
+		$books = Book::orderBy('id', 'desc')->get();
+		return view('admin.book.list', compact('books'));
 	}
 
 	/**
@@ -29,7 +30,7 @@ class BookController extends Controller
 	 */
 	public function create()
 	{
-		//
+		return view('admin.book.create');
 	}
 
 	/**
@@ -40,7 +41,10 @@ class BookController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		//
+		$request->merge(['is_aktif' => '1']);
+		Book::create($request->all());
+
+		return redirect()->route('bk.index');
 	}
 
 	/**
@@ -62,7 +66,7 @@ class BookController extends Controller
 	 */
 	public function edit(Book $book)
 	{
-		//
+		return view('admin.book.edit', compact('book'));
 	}
 
 	/**
@@ -74,7 +78,10 @@ class BookController extends Controller
 	 */
 	public function update(Request $request, Book $book)
 	{
-		//
+		$request->merge(['is_aktif' => '1']);
+		$book->update($request->all());
+
+		return redirect()->route('bk.index');
 	}
 
 	/**
@@ -85,6 +92,7 @@ class BookController extends Controller
 	 */
 	public function destroy(Book $book)
 	{
-		//
+		$book->delete();
+        return redirect()->route('bk.index');
 	}
 }

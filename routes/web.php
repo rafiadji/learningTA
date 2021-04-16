@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'WelcomeController@index')->name('welcome');
+Route::get('/', 'WelcomeController@index')->name('artikel');
+Route::get('/video', 'WelcomeController@video')->name('video');
+Route::get('/book', 'WelcomeController@video')->name('video');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 

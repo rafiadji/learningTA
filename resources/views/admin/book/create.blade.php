@@ -9,12 +9,12 @@
 <div class="container-fluid">
 	<div class="row mb-2">
 		<div class="col-sm-6">
-			<h1>Artikel</h1>
+			<h1>E-Book</h1>
 		</div>
 		<div class="col-sm-6">
 			<ol class="breadcrumb float-sm-right">
 			<li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-			<li class="breadcrumb-item active">Artikel</li>
+			<li class="breadcrumb-item active">E-Book</li>
 			</ol>
 		</div>
 	</div>
@@ -23,11 +23,10 @@
 
 @section('content')
 <div class="card">
-	<form class="form-horizontal" action="{{ route('art.update', $artikel->id) }}" method="POST" enctype="multipart/form-data">
+	<form class="form-horizontal" action="{{ route('bk.store') }}" method="POST" enctype="multipart/form-data">
 	@csrf
-	@method('PUT')
 	<div class="card-header">
-		<h3 class="card-title">Ubah Artikel</h3>
+		<h3 class="card-title">Tambah E-Book</h3>
 
 		<div class="card-tools">
 
@@ -37,22 +36,13 @@
 		<div class="form-group row">
 			<label for="judul" class="col-md-2 col-form-label">Judul</label>
 			<div class="col-md-7">
-				<input type="text" class="form-control" id="judul" name="judul" placeholder="Judul" value="{{ $artikel->judul }}">
+				<input type="text" class="form-control" id="judul" name="judul" placeholder="Judul">
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="artikel" class="col-md-2 col-form-label">Artikel</label>
-			<div class="col-md-10">
-				<textarea name="artikel" id="artikel" class="form-control editor">{{ $artikel->artikel }}</textarea>
-			</div>
-		</div>
-		<div class="form-group row">
-			<label for="file" class="col-md-2 col-form-label">Gambar</label>
-			<div class="col-md-6">
-				<div class="custom-file">
-					<input type="file" name="file" id="file" class="custom-file-input">
-					<label class="custom-file-label" for="file">Choose file</label>
-				</div>
+			<label for="link" class="col-md-2 col-form-label">Link</label>
+			<div class="col-md-7">
+				<input type="text" class="form-control" id="link" name="link" placeholder="Link">
 			</div>
 		</div>
 	</div>

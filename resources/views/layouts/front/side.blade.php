@@ -17,18 +17,20 @@
 			<div class="left-blog">
 				<h4>recent post</h4>
 				<div class="recent-post">
+                    @foreach ($artikels as $art)
 					<!-- start single post -->
 					<div class="recent-single-post">
 						<div class="post-img">
 							<a href="#">
-							<img src="assets/img/blog/1.jpg" alt="">
+							<img src="{{ asset('img/'.$art->image) }}" alt="">
 							</a>
 						</div>
 						<div class="pst-content">
-							<p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
+							<p><a href="#">{{ $art->judul }}</a></p>
 						</div>
 					</div>
 					<!-- End single post -->
+                    @endforeach
 				</div>
 			</div>
 			<!-- recent end -->

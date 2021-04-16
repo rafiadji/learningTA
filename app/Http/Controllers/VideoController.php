@@ -19,7 +19,8 @@ class VideoController extends Controller
 	 */
 	public function index()
 	{
-		//
+		$videos = Video::orderBy('id', 'desc')->get();
+		return view('admin.video.list', compact('videos'));
 	}
 
 	/**
@@ -29,7 +30,7 @@ class VideoController extends Controller
 	 */
 	public function create()
 	{
-		//
+		return view('admin.video.create');
 	}
 
 	/**
@@ -40,7 +41,10 @@ class VideoController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		//
+        $request->merge(['is_aktif' => '1']);
+		Video::create($request->all());
+
+		return redirect()->route('vid.index');
 	}
 
 	/**
@@ -62,7 +66,7 @@ class VideoController extends Controller
 	 */
 	public function edit(Video $video)
 	{
-		//
+		return view('admin.video.edit', compact('video'));
 	}
 
 	/**
@@ -74,7 +78,10 @@ class VideoController extends Controller
 	 */
 	public function update(Request $request, Video $video)
 	{
-		//
+		$request->merge(['is_aktif' => '1']);
+		$video->update($request->all());
+
+		return redirect()->route('vid.index');
 	}
 
 	/**
@@ -85,6 +92,7 @@ class VideoController extends Controller
 	 */
 	public function destroy(Video $video)
 	{
-		//
+		$video->delete();
+        return redirect()->route('vid.index');
 	}
 }

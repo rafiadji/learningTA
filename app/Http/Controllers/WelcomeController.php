@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Artikel;
+use App\Models\Video;
+use App\Models\Book;
 
 class WelcomeController extends Controller
 {
@@ -13,6 +16,21 @@ class WelcomeController extends Controller
 
 	public function index()
 	{
-		return view('welcome');
+        $artikels = Artikel::orderBy('id', 'desc')->get();
+		return view('welcome', ['artikels' => $artikels]);
 	}
+
+    public function video()
+    {
+        $videos = Video::orderBy('id', 'desc')->get();
+        $artikels = Artikel::orderBy('id', 'desc')->get();
+		return view('video', ['videos' => $videos, 'artikels' => $artikels]);
+    }
+
+    public function book()
+    {
+        $books = Book::orderBy('id', 'desc')->get();
+        $artikels = Artikel::orderBy('id', 'desc')->get();
+		return view('book', ['books' => $books, 'artikels' => $artikels]);
+    }
 }
