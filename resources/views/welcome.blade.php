@@ -18,7 +18,7 @@
 				{!! $art->artikel !!}
 			</div>
 			<span>
-				<a href="blog-details.html" class="ready-btn">Read more</a>
+				<a href="{{ url('detail/'.$art->id) }}" class="ready-btn">Read more</a>
 			</span>
 		</div>
 	</div>

@@ -33,4 +33,10 @@ class WelcomeController extends Controller
         $artikels = Artikel::orderBy('id', 'desc')->get();
 		return view('book', ['books' => $books, 'artikels' => $artikels]);
     }
+
+    public function dartikel(Artikel $artikel)
+	{
+        $artikels = Artikel::orderBy('id', 'desc')->get();
+		return view('dartikel', ['artikels' => $artikels, 'artikel' => $artikel]);
+	}
 }
